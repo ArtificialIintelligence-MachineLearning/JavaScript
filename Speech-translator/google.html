@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Speech translator</title> 
+  </head>
+  <body>
+    <html>
+<head></head>
+<body>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("language", "1");  // Load the translator JS library.
+
+      // These will most likely be set in a UI.
+      var fromLang = "en";
+      var toLang = "es";
+
+      function handleSpeechInput(event) {
+        var text = event.target.value;
+        var callback = function(result) {
+          if (result.translation)
+            speak(result.translation, toLang);
+        };
+        google.language.translate(text, fromLang, toLang, callback);
+      }
+
+      function speak(output, lang) {
+        // (Use <audio> or a TTS API to speak output in lang) 
+      }
+    </script>
+
+    <form>
+    <input speech onspeechchange="handleSpeechInput">
+    </form>
+</body>
+</html>  
+    
+  </body>
+</html>
