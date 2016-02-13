@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>WebSearch</title> 
+  </head>
+  <body>
+    <html>
+<head></head>
+<body>
+<script type="text/javascript">
+      function startSearch(event) {
+        if (event.target.results.length > 1) {
+          var second = event.target.results[1].utterance;
+          document.getElementById("second_best").value = second;
+        }
+        event.target.form.submit();
+      }
+    </script>
+
+    <form action="http://www.google.com/search">
+    <input type="search" name="q" speech required onspeechchange="startSearch">
+    <input type="hidden" name="second_best" id="second_best">
+    </form>
+</body>
+</html>  
+    
+  </body>
+</html>
